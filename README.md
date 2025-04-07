@@ -1,19 +1,19 @@
 # 🎯 Candidate Relationship Manager (CRM) API
 
-A lightweight, API-first backend system for recruiters to track, manage, and engage with job candidates—built using C# and ASP.NET Core.
+A clean, API-first backend system to help recruiters organize and manage their candidate pipelines—built with **Python** and **Django**.
 
 ---
 
-## 💼 Problem
+## 💼 The Problem
 
-Modern recruiters juggle dozens of candidates, job roles, and interview stages using bloated ATS systems, spreadsheets, or sticky notes. This leads to lost follow-ups, inconsistent feedback, and poor candidate experiences.
+Recruiters often have to manage dozens of candidates across multiple job openings using spreadsheets, inboxes, or overly complex applicant tracking systems (ATS). It’s messy, hard to follow up, and easy to lose track of good candidates.
 
-**This project solves that** by providing a focused backend system to:
+This project aims to simplify that process by providing a focused backend system to:
 
-- Track candidates per role
-- Log interview stages and feedback
-- Get reminded to follow up
-- View insights and status at a glance
+- Track candidates per job position
+- Manage interview stages and feedback
+- Set reminders for follow-ups
+- Quickly get a snapshot of candidate status and pipeline health
 
 ---
 
@@ -21,87 +21,88 @@ Modern recruiters juggle dozens of candidates, job roles, and interview stages u
 
 ### 👤 Candidates
 
-- Full profile with resume, contact info, tags, and status
-- Attach to one or more job positions
-- Notes from recruiter or team members
+- Store candidate profiles with resume links, contact info, and status
+- Assign candidates to one or more job positions
+- Add notes or tags for easy filtering
 
 ### 💼 Job Positions
 
-- Title, description, location (remote/on-site)
-- Track all related candidates
-- Hiring status (Open, Closed, Paused)
+- Create and manage job postings (title, description, location)
+- View all candidates linked to a job
+- Mark roles as open, closed, or paused
 
 ### 📆 Interview Stages
 
-- Structured interview pipeline per candidate
-- Stage type, date, interviewer, feedback
+- Track each candidate's interview progress
+- Record stage type, date, interviewer name, and feedback
 
 ### 🔔 Reminders
 
-- Automatic or manual follow-up reminders
-- Prevent candidates from slipping through the cracks
+- Set follow-up reminders to avoid ghosting good candidates
+- Optional email or dashboard-based notifications
 
-### 📊 Analytics (Basic)
+### 📊 Basic Analytics
 
-- Candidates per job
-- Conversion rates (Applied → Interview → Offer)
-- Time spent in pipeline
+- See how many candidates are in each stage
+- Track conversion rates and drop-offs
+- Understand average time spent in the pipeline
 
 ---
 
-## 🧱 Project Structure (Planned)
+## 🧱 Planned Structure
 
-- `Domain/` – Core entities (Candidate, Job, InterviewStage)
-- `Application/` – Services, interfaces, business logic
-- `Infrastructure/` – EF Core, database setup, background jobs
-- `API/` – Controllers, DTOs, endpoints, middleware
-- `Tests/` – Unit and integration tests
+We'll follow Django best practices with a modular app design:
 
-Follows Clean Architecture principles.
+- `accounts/` – Authentication, user management
+- `jobs/` – Job positions and their metadata
+- `candidates/` – Candidate profiles, attachments, tagging
+- `interviews/` – Stages, scheduling, feedback
+- `reminders/` – Follow-up logic (background tasks)
+- `api/` – DRF views, serializers, routers
+- `tests/` – Unit and integration test cases
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **C# + ASP.NET Core 8**
-- **Entity Framework Core** (PostgreSQL or SQLite)
-- **JWT Authentication**
-- **MediatR** (CQRS-style commands/queries)
-- **FluentValidation** (request validation)
-- **Serilog** (structured logging)
-- **Hangfire** or **Quartz.NET** (background reminders)
-- **Swagger/OpenAPI** for docs
-- **xUnit + Moq** for testing
+- **Python 3.11+**
+- **Django 5.0**
+- **Django REST Framework (DRF)** – API endpoints
+- **PostgreSQL** – Primary database
+- **Simple JWT** – Authentication
+- **Celery + Redis** – Background jobs (for reminders)
+- **pytest** – Testing
+- **drf-spectacular** – OpenAPI/Swagger docs
 
 ---
 
 ## 🚀 Possible Extensions
 
-- Email integration (e.g. follow-up emails, interview reminders)
-- Resume parsing (via 3rd-party API or simple metadata)
-- Shareable candidate profiles (public read-only tokens)
-- Admin/team accounts with role-based access
+- Resume upload and parsing
+- Email integration for follow-ups or outreach
+- Shareable candidate summaries (with access tokens)
+- Multi-user teams and role-based permissions
 
 ---
 
-## 👀 Who Is This For?
+## 👀 Who This Is For
 
-- **Recruiters** tired of bulky, bloated ATS tools
-- **Engineering managers** who want visibility on pipeline
-- **Developers** building clean, real-world C# backends
-
----
-
-## 📂 Status
-
-🧠 Planning phase  
-✅ Architecture being mapped  
-📌 First milestone: User Auth + Job + Candidate APIs
+- **Recruiters** who want a clean, focused way to manage pipelines
+- **Hiring teams** looking for better candidate visibility
+- **Developers** wanting to demonstrate Django API design, background jobs, and multi-entity systems
 
 ---
 
-## 📣 Contributions / Ideas
+## 📂 Project Status
 
-This is an open-ended system—PRs and feature suggestions are welcome, especially from recruiters or hiring managers who want something better.
+🧠 Planning and architecture  
+✅ Core models and APIs scoped  
+📌 First milestone: User Auth + Jobs + Candidates + Interview Stages
+
+---
+
+## 💬 Contributing & Feedback
+
+This is a work-in-progress. If you're a recruiter, hiring manager, or dev with ideas for making it better, feel free to open an issue or pull request. Your feedback is welcome!
 
 ---
